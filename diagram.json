@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "author": "Navenkumar Balasubramaniam",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    { "type": "wokwi-dht22", "id": "dht1", "top": -120, "left": 220, "rotate": 90, "attrs": { "temperature": "24", "humidity": "40" } },
+    { "type": "wokwi-potentiometer", "id": "pot1", "top": 140, "left": 240, "attrs": {} }
+  ],
+  "connections": [
+    ["esp:TX0", "$serialMonitor:RX", "", []],
+    ["esp:RX0", "$serialMonitor:TX", "", []],
+
+    ["dht1:VCC", "esp:3V3", "red", []],
+    ["dht1:GND", "esp:GND.1", "black", []],
+    ["dht1:SDA", "esp:D15", "green", []],
+
+    ["pot1:VCC", "esp:3V3", "red", []],
+    ["pot1:GND", "esp:GND.1", "black", []],
+    ["pot1:SIG", "esp:34", "yellow", []]
+  ]
+}
